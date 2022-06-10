@@ -8,21 +8,17 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+            Console.Write("Digite o caractere da linha: ");
+            char l = char.Parse(Console.ReadLine());
 
+            Console.Write("Digite o número da coluna: ");
+            int c = int.Parse(Console.ReadLine());
 
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-                tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(3, 7));
+            PosicaoXadrez pos = new PosicaoXadrez(l, c);
 
-                Tela.imprimirTabuleiro(tab);
-            }
-            catch (TabuleiroException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            Console.WriteLine(pos);
+
+            Console.WriteLine(pos.ToPosicao());
 
             Console.ReadLine();
         }
